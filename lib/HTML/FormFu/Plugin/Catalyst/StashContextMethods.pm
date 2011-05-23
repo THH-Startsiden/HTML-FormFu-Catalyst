@@ -1,13 +1,13 @@
 package HTML::FormFu::Plugin::Catalyst::StashContextMethods;
 
 use strict;
-use base 'HTML::FormFu::Plugin';
 use Class::C3;
 use Carp qw( croak );
+use Moose;
+extends 'HTML::FormFu::Plugin';
 
-use HTML::FormFu::Attribute qw/ mk_accessors /;
-
-__PACKAGE__->mk_accessors(qw/ stash_key methods /);
+has 'stash_key' => ( is => 'rw' );
+has 'methods'   => ( is => 'rw' );
 
 sub process {
     my ( $self ) = @_;
